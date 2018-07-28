@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Frøyas web app!</title>
+        <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+
+      {% set active_page = active_page|default('home') -%}
+
+      {% if active_page == 'home.html' %}
+        <p> This is the active_page </p>
+        {{active_page}}
+      {% endif %}
+
+
+        <h1>{% block heading %}{% endblock %}</h1>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
