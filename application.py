@@ -7,5 +7,5 @@ def home():
     return render_template("home.html")
 
 @app.route("/my_activities")
-def my_activities():
+def activities():
     return render_template("my_activities.html")

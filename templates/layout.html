@@ -11,16 +11,48 @@
 
       {% set active_page = active_page|default('home') -%}
 
-
-      {% if active_page == 'home' %}
-          <p> This is the active_page </p>
-          {{active_page}}
-      {% endif %}
-
       {% set navigation_bar= [
           ('/', 'home', 'Home'),
-          ('my_activities', 'my_activities', 'My activities')
+          ('activities', 'my_activities', 'My activities')
       ] -%}
+
+      {% set navigation= "activities" -%}
+
+      {% if active_page == 'home' %}
+          <p> '{{navigation_bar[1][0]}}'</p>
+          <p> '{{navigation}}'</p>
+          <p> {{active_page}} </p>
+      {% endif %}
+
+        <a href="{{ url_for(navigation) }}"> My activites</a>
+        <a href="{{'activities'}}"> My activites</a>
+
+      {% raw %}
+      {# <p> {{navigation_bar[1][1]}} </p> #}
+
+
+      {% for href, id, caption in navigation_bar %}
+        <p> new link</p>
+        <a href="{{ href }}"> {{ caption }}</a>
+      {% endfor %}
+
+      {% raw %}
+
+        <a href="{{ url_for('{{href}}') }}"> {{caption}}</a>
+
+      <ul class="nav nav-tabs">
+      {% for href, id, caption in navigation_bar %}
+            <li class="nav-item">
+                <a {% if id == active_page %}
+                      class="nav-link active"
+                  {% else %}
+                      class="nav-link"
+                  {% endif %}
+                 href="{{ url_for({{ href }}) }}">{{ caption }}>
+            </li>
+      {% endfor %}
+      </ul>
+      {% endraw %}
 
 
       <ul class="nav nav-tabs">
