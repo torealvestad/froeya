@@ -12,25 +12,30 @@
       {% set active_page = active_page|default('home') -%}
 
 
-      {% if active_page == 'home.html' %}
-        <p> This is the active_page </p>
-        {{active_page}}
+      {% if active_page == 'home' %}
+          <p> This is the active_page </p>
+          {{active_page}}
       {% endif %}
+
+      {% set navigation_bar= [
+          ('/', 'home', 'Home'),
+          ('my_activities', 'my_activities', 'My activities')
+      ] -%}
 
 
       <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="hugelculture.html">Hugelculture</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="wiki.html">Wiki</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="aboutus.html">About us</a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="hugelculture.html">Hugelculture</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="wiki.html">Wiki</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About us</a>
+          </li>
       </ul>
 
 
