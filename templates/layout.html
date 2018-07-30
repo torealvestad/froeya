@@ -11,28 +11,23 @@
 
       {% set active_page = active_page|default('home') -%}
 
-
-      {% if active_page == 'home.html' %}
-        <p> This is the active_page </p>
-        {{active_page}}
-      {% endif %}
-
+      {% set navigation_bar= [
+          ('home', 'Home'),
+          ('activities', 'My activities')
+      ] -%}
 
       <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="hugelculture.html">Hugelculture</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="wiki.html">Wiki</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="aboutus.html">About us</a>
-        </li>
+      {% for id, caption in navigation_bar %}
+            <li class="nav-item">
+                <a {% if id == active_page %}
+                      class="nav-link active"
+                  {% else %}
+                      class="nav-link"
+                  {% endif %}
+                 href="{{ url_for(id) }}"> {{ caption }}</a>
+            </li>
+      {% endfor %}
       </ul>
-
 
         <h1>{% block heading %}{% endblock %}</h1>
 
