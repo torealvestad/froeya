@@ -13,3 +13,7 @@ def activities():
 @app.route("/friends")
 def friends():
     return render_template("friends.html")
+
+@app.route("/music")
+def music():
+    return render_template("music.html")
