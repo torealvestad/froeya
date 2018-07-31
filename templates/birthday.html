@@ -10,8 +10,11 @@
 
     {% if birthday == True %}
         <p> It's my birthday!! </p>
+        <img src="{{url_for('static', filename='birthday.jpg')}}" />
     {% else %}
         <p> It's not my birthday </p>
+        <img src="https://lh3.googleusercontent.com/kYnrO147qSapw2Ccm5KsIIXl-0nt6dK4AhSwLaMSxMzsuycxTGOPtIxmR33ljuRS5znySuEOAOB53-t0aUgJ8HwN-zy9OLgLTg-6m-py3tjrbSySDcDxB6Zi1IBD5xkFSnHRh4zI_SY=w2400" width="50%"/>
+
     {% endif %}
 
 {% endblock %}
