@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% set active_page = "friends" %}
+
+{% block heading %}
+  Frøyas web application
+{% endblock %}
+
+{% block body %}
+
+    <p> Here I would like to keep pictures of my friends </p>
+     <img src="{{url_for('static', filename='sanne_linde.jpg')}}" />
+     <img src="{{url_for('static', filename='emilie.jpg')}}" />
+     <img src="{{url_for('static', filename='julia.jpg')}}" />
+      <img src="{{url_for('static', filename='kira_lea.jpg')}}" />
+
+{% endblock %}

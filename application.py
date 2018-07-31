@@ -9,3 +9,7 @@ def home():
 @app.route("/my_activities")
 def activities():
     return render_template("my_activities.html")
+
+@app.route("/friends")
+def friends():
+    return render_template("friends.html")
