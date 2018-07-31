@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% set active_page = "birthday" %}
+
+{% block heading %}
+  Frøyas web application
+{% endblock %}
+
+{% block body %}
+
+
+    {% if birthday == True %}
+        <p> It's my birthday!! </p>
+    {% else %}
+        <p> It's not my birthday </p>
+    {% endif %}
+
+{% endblock %}
