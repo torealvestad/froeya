@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -16,11 +16,6 @@ def activities():
 def friends():
 
     pictures = ["sanne_linde.jpg", "julia.jpg"]
-
-    # "url_for('static', filename='emilie.jpg')",
-    # "url_for('static', filename='kira_lea.jpg')",
-    # "url_for('static', filename='alva.jpg')"]
-
     names = ["Sanne", "Linde", "Petter"]
 
     return render_template("friends.html", pictures=pictures, names=names)
@@ -34,3 +29,8 @@ def birthday():
     now = datetime.datetime.now()
     my_birthday = now.month == 12 and now.day == 24
     return render_template("birthday.html", my_birthday = my_birthday)
+
+@app.route("/name", methods=["POST"])
+def name():
+    name = request.form.get("name")
+    return render_template("name.html", name=name)
