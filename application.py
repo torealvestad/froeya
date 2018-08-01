@@ -14,6 +14,7 @@ def activities():
 
 @app.route("/friends")
 def friends():
+
     return render_template("friends.html")
 
 @app.route("/music")
@@ -24,4 +25,4 @@ def music():
 def birthday():
     now = datetime.datetime.now()
     my_birthday = now.month == 12 and now.day == 24
-    return render_template("birthday.html")
+    return render_template("birthday.html", my_birthday = my_birthday)
