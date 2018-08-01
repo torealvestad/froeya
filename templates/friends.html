@@ -8,10 +8,21 @@
 {% block body %}
 
     <p> Here I would like to keep pictures of my friends </p>
-     <img src="{{url_for('static', filename='sanne_linde.jpg')}}" />
-     <img src="{{url_for('static', filename='emilie.jpg')}}" />
-     <img src="{{url_for('static', filename='julia.jpg')}}" />
-      <img src="{{url_for('static', filename='kira_lea.jpg')}}" />
-      <img src="{{url_for('static', filename='alva.jpg')}}" />
+
+
+    {% for picture in pictures %}
+        <p> {{picture}} </p>
+        <img src="{{ url_for('static', filename=picture) }}" width="30%"/>
+    {% endfor %}
+
+    {% raw %}
+    <img src="{{ picture }}" />
+    <img src="{{ url_for('static', filename='alva.jpg') }}" width="30%"/>
+
+    {% endraw %}
+
+
+
+
 
 {% endblock %}

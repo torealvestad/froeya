@@ -15,7 +15,15 @@ def activities():
 @app.route("/friends")
 def friends():
 
-    return render_template("friends.html")
+    pictures = ["sanne_linde.jpg", "julia.jpg"]
+
+    # "url_for('static', filename='emilie.jpg')",
+    # "url_for('static', filename='kira_lea.jpg')",
+    # "url_for('static', filename='alva.jpg')"]
+
+    names = ["Sanne", "Linde", "Petter"]
+
+    return render_template("friends.html", pictures=pictures, names=names)
 
 @app.route("/music")
 def music():
