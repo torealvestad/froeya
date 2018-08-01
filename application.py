@@ -30,7 +30,7 @@ def birthday():
     my_birthday = now.month == 12 and now.day == 24
     return render_template("birthday.html", my_birthday = my_birthday)
 
-@app.route("/name", methods=["POST"])
-def name():
-    name = request.form.get("name")
-    return render_template("name.html", name=name)
+@app.route("/memoirs", methods=["POST"])
+def memoirs():
+    story = request.form.get("story")
+    return render_template("memoirs.html", story=story)
