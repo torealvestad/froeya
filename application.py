@@ -37,12 +37,12 @@ def birthday():
     my_birthday = now.month == 12 and now.day == 24
     return render_template("birthday.html", my_birthday = my_birthday)
 
-memoirs = []
-
 @app.route("/my_memoirs", methods=["POST", "GET"])
 def my_memoirs():
+    if session.get("memoirs") is None:
+        session["memoirs"] = []
     if request.method == "POST":
         story = request.form.get("story")
-        memoirs.append(story)
+        session["memoirs"].append(story)
 
-    return render_template("my_memoirs.html", memoirs=memoirs)
+    return render_template("my_memoirs.html", memoirs=session["memoirs"])
