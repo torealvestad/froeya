@@ -16,9 +16,13 @@ def activities():
 def friends():
 
     pictures = ["sanne_linde.jpg", "julia.jpg","alva.jpg", "emilie.jpg","kira_lea.jpg"]
-    names = ["Sanne", "Linde", "Petter"]
 
-    return render_template("friends.html", pictures=pictures, names=names)
+    return render_template("friends.html", pictures=pictures)
+
+@app.route("/family")
+def family():
+
+    return render_template("family.html")
 
 @app.route("/music")
 def music():
