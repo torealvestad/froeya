@@ -1,8 +1,13 @@
 import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
+from flask_session import Session
 
 app = Flask(__name__)
+
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 @app.route("/")
 def home():
@@ -14,9 +19,7 @@ def activities():
 
 @app.route("/friends")
 def friends():
-
     pictures = ["sanne_linde.jpg", "julia.jpg","alva.jpg", "emilie.jpg","kira_lea.jpg"]
-
     return render_template("friends.html", pictures=pictures)
 
 @app.route("/family")
@@ -34,10 +37,12 @@ def birthday():
     my_birthday = now.month == 12 and now.day == 24
     return render_template("birthday.html", my_birthday = my_birthday)
 
-@app.route("/memoirs", methods=["POST", "GET"])
-def memoirs():
-    if request.method == "GET":
-        return render_template("memoirs.html")
-    else:
+memoirs = []
+
+@app.route("/my_memoirs", methods=["POST", "GET"])
+def my_memoirs():
+    if request.method == "POST":
         story = request.form.get("story")
-        return render_template("memoirs.html", story=story)
+        memoirs.append(story)
+
+    return render_template("my_memoirs.html", memoirs=memoirs)
