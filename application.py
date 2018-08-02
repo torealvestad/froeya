@@ -1,7 +1,7 @@
 import datetime
 
 from flask import Flask, render_template, request, session
-from flask_session import Session
+# from flask_session import Session
 
 app = Flask(__name__)
 
@@ -39,10 +39,10 @@ def birthday():
 
 memoirs = []
 
-@app.route("/memoirs", methods=["POST", "GET"])
-def memoirs():
+@app.route("/my_memoirs", methods=["POST", "GET"])
+def my_memoirs():
     if request.method == "POST":
-        memoirs = request.form.get("story")
+        story = request.form.get("story")
         memoirs.append(story)
 
-    return render_template("memoirs.html", memoirs=memoirs)
+    return render_template("my_memoirs.html", memoirs=memoirs)
