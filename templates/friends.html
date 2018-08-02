@@ -11,16 +11,8 @@
 
 
     {% for picture in pictures %}
-        <p> {{picture}} </p>
         <img src="{{ url_for('static', filename=picture) }}" width="30%"/>
     {% endfor %}
-
-    {% raw %}
-    <img src="{{ picture }}" />
-    <img src="{{ url_for('static', filename='alva.jpg') }}" width="30%"/>
-
-    {% endraw %}
-
 
 
 

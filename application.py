@@ -15,7 +15,7 @@ def activities():
 @app.route("/friends")
 def friends():
 
-    pictures = ["sanne_linde.jpg", "julia.jpg"]
+    pictures = ["sanne_linde.jpg", "julia.jpg","alva.jpg", "emilie.jpg","kira_lea.jpg"]
     names = ["Sanne", "Linde", "Petter"]
 
     return render_template("friends.html", pictures=pictures, names=names)
@@ -30,7 +30,10 @@ def birthday():
     my_birthday = now.month == 12 and now.day == 24
     return render_template("birthday.html", my_birthday = my_birthday)
 
-@app.route("/memoirs", methods=["POST"])
+@app.route("/memoirs", methods=["POST", "GET"])
 def memoirs():
-    story = request.form.get("story")
-    return render_template("memoirs.html", story=story)
+    if request.method == "GET":
+        return render_template("memoirs.html")
+    else:
+        story = request.form.get("story")
+        return render_template("memoirs.html", story=story)
