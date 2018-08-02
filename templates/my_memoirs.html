@@ -15,5 +15,16 @@
   <form action="{{ url_for('my_memoirs') }}" method="POST">
       <input type="text" name="story" placeholder="Write a story">
       <button> Submit </button>
+  </form>
+
+  <p>To generate embeded code for any picture on Google photos go to:</p>
+  <a href="https://ctrlq.org/google/photos/"> https://ctrlq.org/google/photos/</a>
+
+
+
+  <form action="{{ url_for('my_memoirs') }}" method="POST">
+      <input type="text" name="url" placeholder="url">
+      <button> Submit </button>
+  </form>
 
 {% endblock %}
